@@ -3,6 +3,8 @@
 
 Tsinghua University, Dexmal, MEGVII, StepFun
 
+AAAI 2026 **Oral**
+
 > This is the code for the paper "SpatialActor: Exploring Disentangled Spatial Representations for Robust Robotic Manipulation".
 
 ### 🏠[Project Page](https://shihao1895.github.io/SpatialActor/) | 📑[Paper]() | 🤗[Models](https://huggingface.co/collections/shihao1895/spatialactor)
