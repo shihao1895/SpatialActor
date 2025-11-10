@@ -15,7 +15,7 @@ Tsinghua University, Dexmal, MEGVII, StepFun
 
 SpatialActor is a disentangled framework for robust robotic manipulation. It decouples perception into complementary high-level geometry from fine-grained but noisy raw depth and coarse but robust depth expert priors, along with low-level spatial cues and appearance semantics.
 
-![MemoryVLA Overview](images/overall.png)
+![MemoryVLA Overview](images/fig_overall.png)
 
 ## TODO
 
