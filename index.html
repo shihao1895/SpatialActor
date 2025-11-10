@@ -1,1 +1,404 @@
-Coming soon
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="An Iterative Refinement-based Framework for Training-free Segmentation.">
+  <meta name="keywords" content="Semantic Segmentation, Stable Diffusion, Attention Mechanism, Iterative Refinement">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Dropdown -->
+  <div class="dropdown is-hoverable" style="position:absolute; top:20px; right:40px;">
+    <div class="dropdown-trigger">
+      <button class="button is-light" aria-haspopup="true" aria-controls="dropdown-menu">
+        <span>More Research</span>
+        <span class="icon is-small">
+          <i class="fas fa-angle-down" aria-hidden="true"></i>
+        </span>
+      </button>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+      <div class="dropdown-content">
+        <a href="https://shihao1895.github.io/MemoryVLA" class="dropdown-item">
+          MemoryVLA
+        </a>
+        <a href="https://dexbotic.com" class="dropdown-item">
+          Dexbotic
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <title>SpatialActor</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SpatialActor: Exploring Disentangled Spatial Representations for Robust Robotic Manipulation</h1>
+          
+          <h2 class="is-size-4" style="margin-top:1.2rem; color:#000000; font-weight:500; letter-spacing:0.3px;">
+            AAAI 2026 <span style="color:#d32f2f; font-weight:600; margin-left:0.3em;">Oral</span>
+          </h2>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://shihao1895.github.io">Hao Shi</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://xb534.github.io">Bin Xie</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=pF9KA1sAAAAJ">Yingfei Liu</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yueyang130.github.io">Yang Yue</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=YI0sRroAAAAJ">Tiancai Wang</a><sup>2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=bzzBut4AAAAJ">Haoqiang Fan</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=yuB-cfoAAAAJ">Xiangyu Zhang</a><sup>3,4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=-P9LwcgAAAAJ">Gao Huang</a><sup>1</sup><sup>✉</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Department of Automation, BNRist, Tsinghua University,</span>
+            <span class="author-block"><sup>2</sup>Dexmal,</span>
+            <span class="author-block"><sup>3</sup>MEGVII Technology,</span>
+            <span class="author-block"><sup>4</sup>StepFun</span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">shi-h23@mails.tsinghua.edu.cn,</span>
+            <span class="author-block">wtc@dexmal.com,</span>
+            <span class="author-block">gaohuang@tsinghua.edu.cn</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="static/files/SpatialActor_paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper(Soon)</span>
+                </a>
+              </span>
+              <!-- Arxiv Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv(Soon)</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/shihao1895/SpatialActor"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- HuggingFace -->
+              <span class="link-block">
+                <a href="https://huggingface.co/collections/shihao1895/spatialactor"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <img src="static/images/huggingface_logo.svg" alt="Hugging Face" style="height: 1em; vertical-align: middle;">
+                  <span>Models</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Intro-->
+<section class="hero teaser">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <!-- <h2 class="title is-3">Introduction</h2> -->
+      <div style="width:80%; margin:0 auto;">
+        <img src="static/images/fig_intro.png" style="width:100%; height:auto; margin-bottom:1rem;">
+        <p class="has-text-justified is-size-6" style="margin-top:1rem;">
+          <b>Introduction.</b>
+          (a) Point-based methods suffer from sparse sampling, leading to the loss of fine-grained semantics. 
+          (b) Image-based methods typically entangle semantics and geometry, while inherent depth noise in real-world disrupts semantic understanding. 
+          (c) SpatialActor disentangle visual semantics, two complementary high-level geometry from noisy depth and expert priors, low-level spatial cues. 
+          (d) Performance under various degrees of noise, showing the robustness.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Robotic manipulation requires precise spatial understanding to interact with objects in the real world. 
+            Point-based methods suffer from sparse sampling, leading to the loss of finegrained semantics. 
+            Image-based methods typically feed RGB and depth into 2D backbones pre-trained on 3D auxiliary tasks, but their entangled semantics and geometry are sensitive to inherent depth noise in real-world that disrupts semantic understanding. 
+            Moreover, these methods focus on high level geometry while overlooking low-level spatial cues essential for precise interaction. 
+          </p>
+          <p>
+            We propose SpatialActor, a disentangled framework for robust robotic manipulation that explicitly decouples semantics and geometry. 
+            The Semantic-guided Geometric Module adaptively fuses two complementary geometry from noisy depth and semantic-guided expert priors. 
+            Also, a Spatial Transformer leverages low-level spatial cues for accurate 2D-3D mapping and enables interaction among spatial features. 
+          </p>
+          <p>
+            We evaluate SpatialActor on multiple simulation and real-world scenarios across 50+ tasks. 
+            It achieves state-of-the-art performance with 87.4% on RLBench and improves by 13.9% to 19.4% under varying noisy conditions, showing strong robustness. 
+            Moreover, it significantly enhances few-shot generalization to new tasks and maintains robustness under various spatial perturbations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Framework -->
+<section class="hero teaser">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths has-text-centered">
+      <h2 class="title is-3 mb-5">Framework</h2>
+      <div style="width:80%; margin:0 auto;">
+        <img src="static/images/fig_overall.png"
+             style="width:100%; height:auto; margin-bottom:1rem;">
+        <p class="has-text-justified is-size-6 "
+           style="margin-top:1rem; margin-bottom:2.5rem;">
+          <b>Overall architecture of SpatialActor.</b> 
+            The architecture employs separate vision and depth encoders. 
+            Semantic-guided Geometric Module (SGM) adaptively fuses robust yet coarse geometric priors from a pretrained depth expert with noisy depth features via gated fusion to yield high-level geometric representations. 
+            In the Spatial Transformer (SPT), low-level spatial cues are encoded as positional embeddings to drive spatial interactions. 
+            Finally, view-level interactions refine intra-view features, while scene-level interactions consolidate cross-modal information across views to support the subsequent action head. 
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modules -->
+<section class="hero teaser">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths has-text-centered">
+      <h2 class="title is-3 mb-5">Module Details</h2>
+      <div style="width:75%; margin:0 auto;">
+        <img src="static/images/fig_module.png"
+             style="width:100%; height:auto; margin-bottom:1rem;">
+        <p class="has-text-justified is-size-6 "
+           style="margin-top:1rem; margin-bottom:2.5rem;">
+          <b>Module details</b>
+          (a) Semantic-guided Geometric Module (SGM) adaptively combines two complementary geometric representations via a gating mechanism. 
+          (b) Spatial Transformer (SPT) converts 3D points into spatial positional embeddings using RoPE to establish 2D–3D correspondences, followed by view-level and scene-level interactions for spatial token refinement.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experiments -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experiments</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Simulation Performance -->
+<section class="hero teaser">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths has-text-centered">
+      <h3 class="title is-4 mb-5">Simulation Performance</h3>
+      <div style="width:70%; margin:0 auto;">
+        <img src="static/images/fig_simulation.png"
+             style="width:100%; height:auto; margin-bottom:2rem;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Real-Robot Setup -->
+<section class="hero teaser">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths has-text-centered">
+      <h3 class="title is-4 mb-5">Real Robot Setup</h3>
+      <div style="width:35%; margin:0 auto;">
+        <img src="static/images/fig_robot.png"
+             style="width:100%; height:auto; margin-bottom:2rem;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Real-World Performance -->
+<section class="hero teaser">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths has-text-centered">
+      <h3 class="title is-4 mb-5">Real World Performance</h3>
+      <div style="width:80%; margin:0 auto;">
+        <img src="static/images/fig_real.png"
+             style="width:100%; height:auto; margin-bottom:2rem;">
+        <img src="static/images/fig_ood.png"
+             style="width:60%; height:auto; margin-bottom:2rem;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video -->
+<section class="hero teaser">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths has-text-centered">
+
+      <h2 class="title is-3 mt-6">Tasks</h2>
+
+      <!-- Simulation -->
+      <h3 class="title is-4 mt-4">Simulation</h3>
+
+      <!-- Whole Demo -->
+      <div style="width:100%; margin:0 auto 2rem auto;">
+        <video controls width="100%">
+          <source src="static/videos/simulation/rlbench_demos.mp4" type="video/mp4">
+        </video>
+        <p class="is-size-6">RLBench Demos</p>
+      </div>
+
+      <!-- Simulation Grid -->
+      <div class="columns is-multiline">
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/close_jar.mp4" type="video/mp4"></video><p class="is-size-6">Close Jar</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/insert_onto_square_peg.mp4" type="video/mp4"></video><p class="is-size-6">Insert Onto Square Peg</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/light_bulb_in.mp4" type="video/mp4"></video><p class="is-size-6">Light Bulb In</p></div>
+
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/meat_off_grill.mp4" type="video/mp4"></video><p class="is-size-6">Meat Off Grill</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/open_drawer.mp4" type="video/mp4"></video><p class="is-size-6">Open Drawer</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/place_cups.mp4" type="video/mp4"></video><p class="is-size-6">Place Cups</p></div>
+
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/place_shape_in_shape_sorter.mp4" type="video/mp4"></video><p class="is-size-6">Place Shape In Shape Sorter</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/place_wine_at_rack_location.mp4" type="video/mp4"></video><p class="is-size-6">Place Wine At Rack Location</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/push_buttons.mp4" type="video/mp4"></video><p class="is-size-6">Push Buttons</p></div>
+
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/put_groceries_in_cupboard.mp4" type="video/mp4"></video><p class="is-size-6">Put Groceries In Cupboard</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/put_item_in_drawer.mp4" type="video/mp4"></video><p class="is-size-6">Put Item In Drawer</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/put_money_in_safe.mp4" type="video/mp4"></video><p class="is-size-6">Put Money In Safe</p></div>
+
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/reach_and_drag.mp4" type="video/mp4"></video><p class="is-size-6">Reach And Drag</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/slide_block_to_color_target.mp4" type="video/mp4"></video><p class="is-size-6">Slide Block To Color Target</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/stack_blocks.mp4" type="video/mp4"></video><p class="is-size-6">Stack Blocks</p></div>
+
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/stack_cups.mp4" type="video/mp4"></video><p class="is-size-6">Stack Cups</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/sweep_to_dustpan_of_size.mp4" type="video/mp4"></video><p class="is-size-6">Sweep To Dustpan Of Size</p></div>
+        <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/turn_tap.mp4" type="video/mp4"></video><p class="is-size-6">Turn Tap</p></div>
+      </div>
+
+      <!-- Real-World -->
+      <h3 class="title is-4 mt-6">Real-World</h3>
+      <div class="columns is-multiline">
+        <div class="column is-one-quarter"><video controls width="100%"><source src="static/videos/real_world/insert_ring_onto_cone.mp4" type="video/mp4"></video><p class="is-size-6">Insert Ring Onto Cone</p></div>
+        <div class="column is-one-quarter"><video controls width="100%"><source src="static/videos/real_world/pick_glue_to_box.mp4" type="video/mp4"></video><p class="is-size-6">Pick Glue To Box</p></div>
+        <div class="column is-one-quarter"><video controls width="100%"><source src="static/videos/real_world/place_carrot_to_box.mp4" type="video/mp4"></video><p class="is-size-6">Place Carrot To Box</p></div>
+        <div class="column is-one-quarter"><video controls width="100%"><source src="static/videos/real_world/push_button.mp4" type="video/mp4"></video><p class="is-size-6">Push Button</p></div>
+
+        <div class="column is-one-quarter"><video controls width="100%"><source src="static/videos/real_world/slide_block.mp4" type="video/mp4"></video><p class="is-size-6">Slide Block</p></div>
+        <div class="column is-one-quarter"><video controls width="100%"><source src="static/videos/real_world/stack_block.mp4" type="video/mp4"></video><p class="is-size-6">Stack Block</p></div>
+        <div class="column is-one-quarter"><video controls width="100%"><source src="static/videos/real_world/stack_cup.mp4" type="video/mp4"></video><p class="is-size-6">Stack Cup</p></div>
+        <div class="column is-one-quarter"><video controls width="100%"><source src="static/videos/real_world/wipe_table.mp4" type="video/mp4"></video><p class="is-size-6">Wipe Table</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      TBD
+    </code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website refers to <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>, and
+            is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
