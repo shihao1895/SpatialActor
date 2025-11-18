@@ -7,11 +7,11 @@ AAAI 2026 **Oral**
 
 > This is the code for the paper "SpatialActor: Exploring Disentangled Spatial Representations for Robust Robotic Manipulation".
 
-### 🏠[Project Page](https://shihao1895.github.io/SpatialActor/) | 📑[Paper]() | 🤗[Models](https://huggingface.co/collections/shihao1895/spatialactor)
+### 🏠[Project Page](https://shihao1895.github.io/SpatialActor/) | 📑[Paper](https://arxiv.org/abs/2511.09555) | 🤗[Models](https://huggingface.co/collections/shihao1895/spatialactor)
 
 ## 🌟 News
 
-- 🔥 [2025-11-8] Our paper [SpatialActor]() was accepted as an AAAI 2026 **Oral**!
+- 🔥 [2025-11-8] Our paper [SpatialActor](https://arxiv.org/abs/2511.09555) was accepted as an AAAI 2026 **Oral**!
 
 ## Overview
 
@@ -28,8 +28,13 @@ We will release the code of SpatialActor
 
 ## Citation
 
-If you find our work helpful in your research, please consider citing [our paper](). 
+If you find our work helpful in your research, please consider citing [our paper](https://arxiv.org/abs/2511.09555). 
 
 ```bibtex
-TBD
+@article{shi2025spatialactor,
+  title={SpatialActor: Exploring Disentangled Spatial Representations for Robust Robotic Manipulation},
+  author={Shi, Hao and Xie, Bin and Liu, Yingfei and Yue, Yang and Wang, Tiancai and Fan, Haoqiang and Zhang, Xiangyu and Huang, Gao},
+  journal={arXiv preprint arXiv:2511.09555},
+  year={2025}
+}
 ```
