@@ -187,10 +187,13 @@ We sincerely thank the authors of [RVT](https://github.com/nvlabs/rvt), [PerAct]
 If you find our work helpful in your research, please consider citing [our paper](https://arxiv.org/abs/2511.09555). 
 
 ```bibtex
-@article{shi2025spatialactor,
-  title={SpatialActor: Exploring Disentangled Spatial Representations for Robust Robotic Manipulation},
+@inproceedings{shi2026spatialactor,
+  title={Spatialactor: Exploring disentangled spatial representations for robust robotic manipulation},
   author={Shi, Hao and Xie, Bin and Liu, Yingfei and Yue, Yang and Wang, Tiancai and Fan, Haoqiang and Zhang, Xiangyu and Huang, Gao},
-  journal={arXiv preprint arXiv:2511.09555},
-  year={2025}
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={40},
+  number={11},
+  pages={8969--8977},
+  year={2026}
 }
 ```
