@@ -6,28 +6,6 @@
   <meta name="keywords" content="Semantic Segmentation, Stable Diffusion, Attention Mechanism, Iterative Refinement">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <!-- Dropdown -->
-  <div class="dropdown is-hoverable" style="position:absolute; top:20px; right:40px;">
-    <div class="dropdown-trigger">
-      <button class="button is-light" aria-haspopup="true" aria-controls="dropdown-menu">
-        <span>More Research</span>
-        <span class="icon is-small">
-          <i class="fas fa-angle-down" aria-hidden="true"></i>
-        </span>
-      </button>
-    </div>
-    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-      <div class="dropdown-content">
-        <a href="https://shihao1895.github.io/MemoryVLA" class="dropdown-item">
-          MemoryVLA
-        </a>
-        <a href="https://dexbotic.com" class="dropdown-item">
-          Dexbotic
-        </a>
-      </div>
-    </div>
-  </div>
-
   <title>SpatialActor</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -46,16 +24,40 @@
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260608-memoryvla-style">
   <link rel="icon" href="./static/images/icon.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <script src="./static/js/index.js?v=20260608-video-toggle"></script>
 
 </head>
 <body>
+
+<nav class="top-more-research" role="navigation" aria-label="more research">
+  <details>
+    <summary>More Research</summary>
+    <div class="more-research-dropdown">
+      <a href="https://shihao1895.github.io/MemoryVLA">MemoryVLA</a>
+      <a href="https://shihao1895.github.io/MemoryVLA-PP-Web">MemoryVLA++</a>
+      <a href="https://dexbotic.com">Dexbotic</a>
+    </div>
+  </details>
+</nav>
+
+<nav class="page-toc" aria-label="section navigation">
+  <a href="#introduction">Introduction</a>
+  <a href="#abstract">1 Abstract</a>
+  <a href="#method">2 Method</a>
+  <a class="toc-sub" href="#framework">2.1 Framework</a>
+  <a class="toc-sub" href="#modules">2.2 Module Details</a>
+  <a href="#experiment">3 Experiment</a>
+  <a class="toc-sub" href="#simulation-performance">3.1 Simulation</a>
+  <a class="toc-sub" href="#real-world-performance">3.2 Real World</a>
+  <a class="toc-sub" href="#task-videos">3.3 Videos</a>
+  <a href="#BibTeX">BibTeX</a>
+</nav>
 
 <section class="hero">
   <div class="hero-body">
@@ -181,10 +183,12 @@
 
 
 <!-- Intro-->
-<section class="hero teaser">
+<section class="hero teaser section-anchor" id="introduction">
   <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <!-- <h2 class="title is-3">Introduction</h2> -->
+      <div style="width:80%; margin:0 auto;">
+        <h2 class="title is-3 mb-5 has-text-left">Introduction</h2>
+      </div>
       <div style="width:80%; margin:0 auto;">
         <img src="static/images/fig_intro.png" style="width:100%; height:auto; margin-bottom:1rem;">
         <p class="has-text-justified is-size-6" style="margin-top:1rem;">
@@ -201,24 +205,20 @@
 
 
 <!-- Abstract -->
-<section class="section">
+<section class="section section-anchor" id="abstract">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3 has-text-left">1 Abstract</h2>
         <div class="content has-text-justified">
           <p>
             Robotic manipulation requires precise spatial understanding to interact with objects in the real world. 
             Point-based methods suffer from sparse sampling, leading to the loss of finegrained semantics. 
             Image-based methods typically feed RGB and depth into 2D backbones pre-trained on 3D auxiliary tasks, but their entangled semantics and geometry are sensitive to inherent depth noise in real-world that disrupts semantic understanding. 
             Moreover, these methods focus on high level geometry while overlooking low-level spatial cues essential for precise interaction. 
-          </p>
-          <p>
             We propose SpatialActor, a disentangled framework for robust robotic manipulation that explicitly decouples semantics and geometry. 
             The Semantic-guided Geometric Module adaptively fuses two complementary geometry from noisy depth and semantic-guided expert priors. 
             Also, a Spatial Transformer leverages low-level spatial cues for accurate 2D-3D mapping and enables interaction among spatial features. 
-          </p>
-          <p>
             We evaluate SpatialActor on multiple simulation and real-world scenarios across 50+ tasks. 
             It achieves state-of-the-art performance with 87.4% on RLBench and improves by 13.9% to 19.4% under varying noisy conditions, showing strong robustness. 
             Moreover, it significantly enhances few-shot generalization to new tasks and maintains robustness under various spatial perturbations.
@@ -229,11 +229,24 @@
   </div>
 </section>
 
-<!-- Framework -->
-<section class="hero teaser">
+<!-- Method -->
+<section class="hero teaser section-anchor" id="method">
   <div class="columns is-centered">
     <div class="column is-four-fifths has-text-centered">
-      <h2 class="title is-3 mb-5">Framework</h2>
+      <div style="width:80%; margin:0 auto;">
+        <h2 class="title is-3 mb-5 has-text-left">2 Method</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Framework -->
+<section class="hero teaser section-anchor" id="framework">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths has-text-centered">
+      <div style="width:80%; margin:0 auto;">
+        <h2 class="title is-3 mb-5 has-text-left">2.1 Framework</h2>
+      </div>
       <div style="width:80%; margin:0 auto;">
         <img src="static/images/fig_overall.png"
              style="width:100%; height:auto; margin-bottom:1rem;">
@@ -251,10 +264,12 @@
 </section>
 
 <!-- Modules -->
-<section class="hero teaser">
+<section class="hero teaser section-anchor" id="modules">
   <div class="columns is-centered">
     <div class="column is-four-fifths has-text-centered">
-      <h2 class="title is-3 mb-5">Module Details</h2>
+      <div style="width:75%; margin:0 auto;">
+        <h2 class="title is-3 mb-5 has-text-left">2.2 Module Details</h2>
+      </div>
       <div style="width:75%; margin:0 auto;">
         <img src="static/images/fig_module.png"
              style="width:100%; height:auto; margin-bottom:1rem;">
@@ -270,50 +285,43 @@
 </section>
 
 <!-- Experiments -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Experiments</h2>
+<section class="hero teaser section-anchor" id="experiment">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths has-text-centered">
+      <div style="width:80%; margin:0 auto;">
+        <h2 class="title is-3 mb-5 has-text-left">3 Experiment</h2>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Simulation Performance -->
-<section class="hero teaser">
+<section class="hero teaser section-anchor" id="simulation-performance">
   <div class="columns is-centered">
     <div class="column is-four-fifths has-text-centered">
-      <h3 class="title is-4 mb-5">Simulation Performance</h3>
-      <div style="width:70%; margin:0 auto;">
+      <div style="width:80%; margin:0 auto;">
+        <h2 class="title is-3 mb-5 has-text-left">3.1 Simulation Performance</h2>
+      </div>
+      <div style="width:80%; margin:0 auto;">
         <img src="static/images/fig_rlbench.png"
              style="width:100%; height:auto; margin-bottom:2rem;">
         <img src="static/images/fig_simulation.png"
-             style="width:100%; height:auto; margin-bottom:2rem;">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Real-Robot Setup -->
-<section class="hero teaser">
-  <div class="columns is-centered">
-    <div class="column is-four-fifths has-text-centered">
-      <h3 class="title is-4 mb-5">Real Robot Setup</h3>
-      <div style="width:35%; margin:0 auto;">
-        <img src="static/images/fig_robot.png"
-             style="width:100%; height:auto; margin-bottom:2rem;">
+             style="width:86%; height:auto; margin-bottom:2rem;">
       </div>
     </div>
   </div>
 </section>
 
 <!-- Real-World Performance -->
-<section class="hero teaser">
+<section class="hero teaser section-anchor" id="real-world-performance">
   <div class="columns is-centered">
     <div class="column is-four-fifths has-text-centered">
-      <h3 class="title is-4 mb-5">Real World Performance</h3>
       <div style="width:80%; margin:0 auto;">
+        <h2 class="title is-3 mb-5 has-text-left">3.2 Real World Performance</h2>
+      </div>
+      <div style="width:80%; margin:0 auto;">
+        <img src="static/images/fig_robot.png"
+             style="width:34%; height:auto; margin-bottom:2rem;">
         <img src="static/images/fig_real.png"
              style="width:100%; height:auto; margin-bottom:2rem;">
         <img src="static/images/fig_ood.png"
@@ -324,26 +332,23 @@
 </section>
 
 <!-- Video -->
-<section class="hero teaser">
+<section class="section video-section section-anchor" id="task-videos">
   <div class="columns is-centered">
     <div class="column is-four-fifths has-text-centered">
-
-      <!-- Collapsible Header -->
-      <div class="collapsible-wrapper">
-        <button class="collapsible">
-          <span class="triangle">▶</span>
-          <span>Task Videos</span>
-        </button>
+      <div class="video-section-heading">
+        <h2 class="title is-3 mb-5 has-text-left">3.3 Task Videos</h2>
       </div>
 
-      <!-- Collapsible Content -->
-      <div class="collapsible-content">
-
-        <!-- Simulation -->
-        <h3 class="title is-4 mt-4">Simulation</h3>
+      <div class="video-toggle-row">
+        <button class="video-toggle" type="button" aria-expanded="false">
+          <span class="video-toggle-icon" aria-hidden="true"></span>
+          <span class="video-toggle-label">Simulation</span>
+        </button>
+      </div>
+      <div class="video-panel simulation-video-panel">
 
         <!-- Whole Demo -->
-        <div style="width:100%; margin:0 auto 2rem auto;">
+        <div class="wide-video" style="width:100%; margin:0 auto 2rem auto;">
           <video controls width="100%">
             <source src="static/videos/simulation/rlbench_demos.mp4" type="video/mp4">
           </video>
@@ -376,9 +381,15 @@
           <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/sweep_to_dustpan_of_size.mp4" type="video/mp4"></video><p class="is-size-6">Sweep To Dustpan Of Size</p></div>
           <div class="column is-one-third"><video controls width="100%"><source src="static/videos/simulation/turn_tap.mp4" type="video/mp4"></video><p class="is-size-6">Turn Tap</p></div>
         </div>
+      </div>
 
-        <!-- Real-World -->
-        <h3 class="title is-4 mt-6">Real-World</h3>
+      <div class="video-toggle-row">
+        <button class="video-toggle" type="button" aria-expanded="false">
+          <span class="video-toggle-icon" aria-hidden="true"></span>
+          <span class="video-toggle-label">Real World</span>
+        </button>
+      </div>
+      <div class="video-panel">
         <div class="columns is-multiline">
           <div class="column is-one-quarter"><video controls width="100%"><source src="static/videos/real_world/insert_ring_onto_cone.mp4" type="video/mp4"></video><p class="is-size-6">Insert Ring Onto Cone</p></div>
           <div class="column is-one-quarter"><video controls width="100%"><source src="static/videos/real_world/pick_glue_to_box.mp4" type="video/mp4"></video><p class="is-size-6">Pick Glue To Box</p></div>
@@ -399,12 +410,15 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{shi2025spatialactor,
-    title={SpatialActor: Exploring Disentangled Spatial Representations for Robust Robotic Manipulation},
-    author={Shi, Hao and Xie, Bin and Liu, Yingfei and Yue, Yang and Wang, Tiancai and Fan, Haoqiang and Zhang, Xiangyu and Huang, Gao},
-    journal={arXiv preprint arXiv:2511.09555},
-    year={2025}
-  }
+    <pre><code>@inproceedings{shi2026spatialactor,
+  title={Spatialactor: Exploring disentangled spatial representations for robust robotic manipulation},
+  author={Shi, Hao and Xie, Bin and Liu, Yingfei and Yue, Yang and Wang, Tiancai and Fan, Haoqiang and Zhang, Xiangyu and Huang, Gao},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={40},
+  number={11},
+  pages={8969--8977},
+  year={2026}
+}
     </code></pre>
   </div>
 </section>
